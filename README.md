@@ -18,5 +18,6 @@ Spring Security配合使用时，出现以下报错
  http.headers().frameOptions().disable();	
 ```
 
+##欢迎issue,欢迎star,欢迎pr
 
 > 参考了 https://github.com/wchstrife/blog.git 
