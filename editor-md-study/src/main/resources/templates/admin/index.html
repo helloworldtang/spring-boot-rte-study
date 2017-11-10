@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Index</title>
+    <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon"/>
+    <link th:href="@{/static/bootstrap/css/bootstrap.css}" href="../../static/bootstrap/css/bootstrap.css"
+          rel="stylesheet"/>
+    <link th:href="@{/static/bootstrap/css/bootstrap-theme.css}" href="../../static/bootstrap/css/bootstrap-theme.css"
+          rel="stylesheet"/>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">列表</div>
+        <div class="panel-body">
+            <p><a class="btn btn-primary btn-sm" th:href="@{/blog/add}" role="button">Add</a></p>
+        </div>
+
+        <table class="table">
+            <tr class="info">
+                <td>编号</td>
+                <td>内容</td>
+                <td>发表时间</td>
+                <td style="text-align: center" colspan="3">操作</td>
+            </tr>
+            <tr th:each="blog:${blogs}">
+                <td th:text="${blog.id}"></td>
+                <td th:text="${blog.mdContent}"></td>
+                <td th:text="${blog.createTime}"></td>
+                <td><a th:href="@{/blog/{id}/detail(id=${blog.id})}">Detail</a></td>
+                <td><a th:href="@{/blog/{id}/edit(id=${blog.id})}">Edit</a></td>
+                <td><a th:href="@{/blog/{id}/delete(id=${blog.id})}">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script th:href="@{/static/js/jquery-3.2.1.min.js}" href="../../static/js/jquery.min.js"
+        type="text/javascript"></script>
+<script th:href="@{/static/bootstrap/js/bootstrap.js}" href="../../static/bootstrap/js/bootstrap.js"></script>
+
+</body>
+</html>
