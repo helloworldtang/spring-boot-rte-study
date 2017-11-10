@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author tangcheng
@@ -60,12 +62,14 @@ public class BlogController {
 
     @ResponseBody
     @PostMapping("blog")
-    public String add(Blog blogReq) {
+    public Map<String, String> add(Blog blogReq) {
         Date now = new Date();
         blogReq.setCreateTime(now);
         blogReq.setUpdateTime(now);
         blogRepository.save(blogReq);
-        return "/blog";
+        Map<String, String> result = new HashMap<>();
+        result.put("url", "/blog");
+        return result;
     }
 
 }
