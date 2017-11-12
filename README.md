@@ -4,7 +4,7 @@ Rich Text Editor study
  [editor.md](https://github.com/pandao/editor.md)  
 show :http://localhost:8080
 
-## editor-md-study
+## editor-ck-study
 [CKEditor](https://github.com/ckeditor)  
 show :http://localhost:8080
 
