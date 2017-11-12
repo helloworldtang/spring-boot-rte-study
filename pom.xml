@@ -13,6 +13,7 @@
 
     <modules>
         <module>editor-md-study</module>
+		<module>editor-ck-study</module>
     </modules>
 
     <parent>

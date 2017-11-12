@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>CKEditor Edit</title>
+    <title>A Simple Page with CKEditor</title>
+    <link rel="stylesheet" th:href="@{/static/css/style.css}"
+          href="../../static/css/style.css"/>
+</head>
+<body>
+<form method="post" th:action="@{/blog}">
+    <input id="blogId" name="id" th:value="${blog!=null?blog.id:''}" hidden/>
+
+    <!--https://docs.ckeditor.com/ckeditor4/docs/#!/guide/dev_installation-->
+    <!--https://sdk.ckeditor.com/samples/savetextarea.html-->
+    <textarea name="content" id="CKEditor" rows="10" cols="80" th:text="${blog!=null?blog.content:''}">
+        This is my textarea to be replaced with CKEditor.
+    </textarea>
+
+    <div class="btns" style=" width:200px;height:200px;margin: 0 auto">
+        <button id="save" class="btn" style="width:100px;height:50px">Save</button>
+    </div>
+
+</form>
+
+<!-- Make sure the path to CKEditor is correct. -->
+<script th:src="@{/static/ckeditor/ckeditor.js}" src="../../static/ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+    // Replace the <textarea id="editor1"> with a CKEditor
+    // instance, using default configuration.
+    CKEDITOR.replace('CKEditor');
+</script>
+
+</body>
+</html>
