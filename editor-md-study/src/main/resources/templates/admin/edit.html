@@ -99,17 +99,22 @@
         $("#save").click(function () {
             var html = blogEditor.getHTML();
             console.log(html);
-            $.post("/blog", {
-                id: $("#blogId").val(),
-                mdContent: blogEditor.getMarkdown(),
-                htmlContent: html
-            }, function (result) {
-                console.log("success");
-                console.log(result);
-                window.location.href = result.url;
+            $.ajax({
+                type: "post",
+                url: "/blog",
+                data: {
+                    id: $("#blogId").val(),
+                    mdContent: blogEditor.getMarkdown(),
+                    htmlContent: html
+                },
+//                contentType: "application/json; charset=utf-8",
+                success: function (result) {
+                    console.log("success");
+                    console.log(result);
+                    window.location.href = result.url;
+                }
             });
         });
-
 
     });
 </script>
