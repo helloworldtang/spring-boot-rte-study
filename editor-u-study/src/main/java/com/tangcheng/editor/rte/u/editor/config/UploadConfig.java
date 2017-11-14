@@ -2,13 +2,8 @@ package com.tangcheng.editor.rte.u.editor.config;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.commons.io.FileUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * @author tangcheng
@@ -21,11 +16,8 @@ import java.io.IOException;
 public class UploadConfig {
     private String storage;
     private String host;
-    private String urlPrefix = "/public/image/";
-
-    @PostConstruct
-    public void init() throws IOException {
-        FileUtils.forceMkdir(new File(this.getStorage()));
-    }
-
+    /**
+     * 与config.json中的imageUrlPrefix对应的值保持一致
+     */
+    private String urlPrefix = "/public/";
 }

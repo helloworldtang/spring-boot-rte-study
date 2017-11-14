@@ -1,6 +1,5 @@
 package com.baidu.ueditor.upload;
 
-import com.baidu.ueditor.ConfigManager;
 import com.baidu.ueditor.PathFormat;
 import com.baidu.ueditor.define.AppInfo;
 import com.baidu.ueditor.define.BaseState;
@@ -9,16 +8,13 @@ import com.baidu.ueditor.define.State;
 
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.codec.binary.Base64;
 
 public final class Base64Uploader {
 
-	public static State save(HttpServletRequest request, Map<String, Object> conf) {
-	    String filedName = (String) conf.get("fieldName");
-		String fileName = request.getParameter(filedName);
-		byte[] data = decode(fileName);
+	public static State save(String content, Map<String, Object> conf) {
+		
+		byte[] data = decode(content);
 
 		long maxSize = ((Long) conf.get("maxSize")).longValue();
 
@@ -32,8 +28,7 @@ public final class Base64Uploader {
 				(String) conf.get("filename"));
 		
 		savePath = savePath + suffix;
-		String rootPath = ConfigManager.getRootPath(request,conf);
-		String physicalPath = rootPath + savePath;
+		String physicalPath = conf.get("rootPath") + savePath;
 
 		State storageState = StorageManager.saveBinaryFile(data, physicalPath);
 

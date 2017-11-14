@@ -18,7 +18,10 @@ public class UploadController {
     @RequestMapping(value = "/static/ueditor/config")
     public String config(HttpServletRequest request) {
         String rootPath = request.getSession().getServletContext().getRealPath("/");
-        return new ActionEnter(request, rootPath).exec();
+        String exec = new ActionEnter(request, rootPath).exec();
+        log.info(exec);
+        return exec;
     }
+
 
 }
