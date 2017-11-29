@@ -1,6 +1,6 @@
-package com.tangcheng.editor.rte.u.editor.controller;
+package com.tangcheng.editor.rte.ck.editor.controller;
 
-import com.tangcheng.editor.rte.u.editor.config.UploadConfig;
+import com.tangcheng.editor.rte.ck.editor.config.UploadConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;

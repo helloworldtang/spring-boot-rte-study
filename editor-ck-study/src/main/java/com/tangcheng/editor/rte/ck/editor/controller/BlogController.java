@@ -1,7 +1,7 @@
-package com.tangcheng.editor.rte.u.editor.controller;
+package com.tangcheng.editor.rte.ck.editor.controller;
 
-import com.tangcheng.editor.rte.u.editor.domain.BlogCKEditor;
-import com.tangcheng.editor.rte.u.editor.repository.BlogRepository;
+import com.tangcheng.editor.rte.ck.editor.domain.BlogCKEditor;
+import com.tangcheng.editor.rte.ck.editor.repository.BlogRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

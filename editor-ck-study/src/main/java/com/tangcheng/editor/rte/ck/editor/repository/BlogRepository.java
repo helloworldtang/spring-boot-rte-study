@@ -1,6 +1,6 @@
-package com.tangcheng.editor.rte.u.editor.repository;
+package com.tangcheng.editor.rte.ck.editor.repository;
 
-import com.tangcheng.editor.rte.u.editor.domain.BlogCKEditor;
+import com.tangcheng.editor.rte.ck.editor.domain.BlogCKEditor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

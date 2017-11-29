@@ -1,4 +1,4 @@
-package com.tangcheng.editor.rte.u.editor;
+package com.tangcheng.editor.rte.ck.editor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

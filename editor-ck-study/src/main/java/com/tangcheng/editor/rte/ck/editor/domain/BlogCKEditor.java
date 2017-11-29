@@ -1,4 +1,4 @@
-package com.tangcheng.editor.rte.u.editor.domain;
+package com.tangcheng.editor.rte.ck.editor.domain;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

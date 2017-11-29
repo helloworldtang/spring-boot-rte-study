@@ -1,4 +1,4 @@
-package com.tangcheng.editor.rte.u.editor.config;
+package com.tangcheng.editor.rte.ck.editor.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.tangcheng.editor.rte.u.editor.config;
+package com.tangcheng.editor.rte.ck.editor.config;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
