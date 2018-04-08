@@ -32,7 +32,7 @@
             </tr>
             <tr th:each="blog:${blogs}">
                 <td th:text="${blog.id}"></td>
-                <td th:text="${blog.content}"></td>
+                <td th:utext="${blog.content}"></td>
                 <td th:text="${blog.createTime}"></td>
                 <td><a th:href="@{/blog/{id}/detail(id=${blog.id})}">Detail</a></td>
                 <td><a th:href="@{/blog/{id}/edit(id=${blog.id})}">Edit</a></td>
