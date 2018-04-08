@@ -20,7 +20,19 @@
         <!-- Default panel contents -->
         <div class="panel-heading">列表</div>
         <div class="panel-body">
-            <p><a class="btn btn-primary btn-sm" th:href="@{/blog/add}" role="button">Add</a></p>
+            <p><a class="btn btn-primary btn-sm" th:href="@{/blog/add}">Add</a></p>
+            <form method="POST" enctype="multipart/form-data" th:action="@{/convert/doc/to/html}">
+                <table>
+                    <tr>
+                        <td>Doc to Html:</td>
+                        <td><input type="file" name="file"/></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" value="Upload"/></td>
+                    </tr>
+                </table>
+            </form>
         </div>
 
         <table class="table">
