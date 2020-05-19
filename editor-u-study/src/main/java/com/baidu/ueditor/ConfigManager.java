@@ -7,8 +7,10 @@ import org.json.JSONObject;
 
 import java.io.*;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * 配置管理器
@@ -156,11 +158,10 @@ public final class ConfigManager {
 		this.parentPath = file.getParent();
 
 		//String configContent = this.readFile( this.getConfigPath() );
-		String configContent = this.filter(IOUtils.toString(this.getClass().getClassLoader().getResourceAsStream("config.json"),"utf-8"));
+		String configContent = this.filter(IOUtils.toString(Objects.requireNonNull(this.getClass().getClassLoader().getResourceAsStream("config.json")),"utf-8"));
 
 		try{
-			JSONObject jsonConfig = new JSONObject( configContent );
-			this.jsonConfig = jsonConfig;
+			this.jsonConfig = new JSONObject( configContent );
 		} catch ( Exception e ) {
 			this.jsonConfig = null;
 		}
@@ -172,7 +173,7 @@ public final class ConfigManager {
 		//return this.parentPath + File.separator + ConfigManager.configFileName;
 		try {
 			//获取classpath下的config.json路径
-			return this.getClass().getClassLoader().getResource("config.json").toURI().getPath();
+			return Objects.requireNonNull(this.getClass().getClassLoader().getResource("config.json")).toURI().getPath();
 		} catch (URISyntaxException e) {
 			return null;
 		}
@@ -197,10 +198,10 @@ public final class ConfigManager {
 
 		try {
 
-			InputStreamReader reader = new InputStreamReader( new FileInputStream( path ), "UTF-8" );
+			InputStreamReader reader = new InputStreamReader( new FileInputStream( path ), StandardCharsets.UTF_8);
 			BufferedReader bfReader = new BufferedReader( reader );
 
-			String tmpContent = null;
+			String tmpContent;
 
 			while ( ( tmpContent = bfReader.readLine() ) != null ) {
 				builder.append( tmpContent );
@@ -208,8 +209,7 @@ public final class ConfigManager {
 
 			bfReader.close();
 
-		} catch ( UnsupportedEncodingException e ) {
-			// 忽略
+		} catch ( UnsupportedEncodingException ignored) {
 		}
 
 		return this.filter( builder.toString() );

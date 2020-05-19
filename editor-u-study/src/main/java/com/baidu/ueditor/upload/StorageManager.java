@@ -77,13 +77,12 @@ public class StorageManager {
 
 			return state;
 			
-		} catch (IOException e) {
+		} catch (IOException ignored) {
 		}
 		return new BaseState(false, AppInfo.IO_ERROR);
 	}
 
 	public static State saveFileByInputStream(InputStream is, String path) {
-		State state = null;
 
 		File tmpFile = getTmpFile();
 
@@ -101,14 +100,13 @@ public class StorageManager {
 			bos.flush();
 			bos.close();
 
-			state = saveTmpFile(tmpFile, path);
-
+			State state = saveTmpFile(tmpFile, path);
 			if (!state.isSuccess()) {
 				tmpFile.delete();
 			}
 
 			return state;
-		} catch (IOException e) {
+		} catch (IOException ignored) {
 		}
 		return new BaseState(false, AppInfo.IO_ERROR);
 	}
@@ -120,7 +118,6 @@ public class StorageManager {
 	}
 
 	private static State saveTmpFile(File tmpFile, String path) {
-		State state = null;
 		File targetFile = new File(path);
 
 		if (targetFile.canWrite()) {
@@ -132,7 +129,7 @@ public class StorageManager {
 			return new BaseState(false, AppInfo.IO_ERROR);
 		}
 
-		state = new BaseState(true);
+		State state = new BaseState(true);
 		state.putInfo( "size", targetFile.length() );
 		state.putInfo( "title", targetFile.getName() );
 		

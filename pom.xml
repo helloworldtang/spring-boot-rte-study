@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
 
     <name>spring-boot-rte-study</name>
-    <description>Demo project for Spring Boot</description>
+    <description>spring-boot-rte-study</description>
 
     <modules>
         <module>editor-md-study</module>

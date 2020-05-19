@@ -63,7 +63,7 @@ public class BinaryUploader {
 					originFileName.length() - suffix.length());
 			savePath = savePath + suffix;
 
-			long maxSize = ((Long) conf.get("maxSize")).longValue();
+			long maxSize = (Long) conf.get("maxSize");
 
 			if (!validType(suffix, (String[]) conf.get("allowFiles"))) {
 				return new BaseState(false, AppInfo.NOT_ALLOW_FILE_TYPE);
@@ -90,7 +90,7 @@ public class BinaryUploader {
 			return storageState;
 		// } catch (FileUploadException e) {
 		// 	return new BaseState(false, AppInfo.PARSE_REQUEST_ERROR);
-		} catch (IOException e) {
+		} catch (IOException ignored) {
 		}
 		return new BaseState(false, AppInfo.IO_ERROR);
 	}
